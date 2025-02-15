@@ -9,6 +9,7 @@
 <body>
     <header>
         <div class="header-content">
+            <img src="sweetty.jpeg" alt="Sweetty P Devassy" style="width: 150px; height: 150px; border-radius: 50%;">
             <h1>👋 Hi, I'm <span class="highlight">Sweetty P Devassy</span></h1>
         <p>🚀 Backend Developer | 🛠️ Open Source Contributor | 🎤 Speaker | ✍️ Blogger</p>
         </div>
@@ -126,16 +127,28 @@
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3>xxx</h3>
-            <p>yyy</p>
-            <a href="#">View Project</a>
+        <h2>🧑‍💻Projects</h2>
+        <p>Click to know more about Projects</p>
+        
+
+        <div class="projects-container">
+            <div class="project-card" onclick="toggleDetails(this)">
+                <h3>WebSocket Chat Application</h3>
+                <p>A simple chat server using Jakarta WebSocket API</p>
+                <a href="https://github.com/sweettypdevassy/ws-blog-backend">Backend Repo</a> |
+                <a href="https://github.com/sweettypdevassy/ws-blog-frontend">Frontend Repo</a>
+            </div>
+            <div class="project-card" onclick="toggleDetails(this)">
+                <h3>BMI Calculator</h3>
+                <p>A BMI calculator web application using Open Liberty, HttpServlet, and Tailwind CSS.</p>
+                <a href="https://github.com/sweetty01/bmi-calculator">GitHub Repo</a>
+            </div>
         </div>
+
     </section>
 
     <section id="contact">
-        <h2>Contact Me</h2>
+        <h2>📞Contact Me</h2>
         <p>Email: sweettypdevassy91@gmail.com</p>
         <p>GitHub: <a href="https://github.com/sweettypdevassy" target="_blank">sweettypdevassy</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/sweetty-p-devassy/" target="_blank">Sweetty P Devassy</a></p>
