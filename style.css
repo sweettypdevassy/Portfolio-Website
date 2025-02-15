@@ -20,13 +20,7 @@ section {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.project-card {
-    background: #ddd;
-    padding: 15px;
-    margin: 10px auto;
-    width: 50%;
-    border-radius: 5px;
-}
+
 
 body {
     font-family: 'Arial', sans-serif;
@@ -44,22 +38,20 @@ h2 {
 
 .talks-container,
 .education-container,
-.blogs-container {
+.experience-container,
+.blogs-container,
+.projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
-.experience-container{
-    display: flex;
-    flex-direction: wrap; /* Makes it vertical */
-    justify-content: center;
-    gap: 20px;
-}
+
 .talk-card,
 .experience-card,
 .education-card,
-.blog-card{
+.blog-card,
+.project-card{
     background: white;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -74,7 +66,8 @@ h2 {
 .talk-card h3,
 .experience-card h3,
 .education-card h3,
-.blog-card h3 {
+.blog-card h3,
+.project-card h3 {
     margin: 10px 0;
     font-size: 20px;
     color: #007BFF;
@@ -83,7 +76,8 @@ h2 {
 .talk-card p,
 .experience-card p ,
 .education-card p,
-.blog-card p{
+.blog-card p,
+.project-card p{
     font-size: 14px;
     color: #555;
     display: none; /* Keeps details hidden until clicked */
@@ -93,7 +87,8 @@ h2 {
 .talk-card:hover,
 .experience-card:hover,
 .education-card:hover,
-.blog-card:hover{
+.blog-card:hover,
+.project-card:hover{
     transform: scale(1.05);
 }
 

@@ -25,6 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
             card.classList.add("visible");
         }, index * 200);
     });
+    let projectCards = document.querySelectorAll(".project-card");
+    projectCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add("visible");
+        }, index * 200);
+    });
 });
 
 
