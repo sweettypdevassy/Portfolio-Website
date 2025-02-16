@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="dark-mode-toggle">
+        <button id="dark-mode-btn">🌙</button>
+    </div>
+        <!-- Chatbot Toggle Button -->
+        <div class="chatbot-toggle-btn" id="chatbot-toggle-btn">
+            💬
+        </div>
     <header>
         <div class="header-content">
             <img src="sweetty.jpeg" alt="Sweetty P Devassy" style="width: 150px; height: 150px; border-radius: 50%;">
@@ -153,7 +160,21 @@
         <p>GitHub: <a href="https://github.com/sweettypdevassy" target="_blank">sweettypdevassy</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/sweetty-p-devassy/" target="_blank">Sweetty P Devassy</a></p>
     </section>
-    
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <span>Chatbot</span>
+            <button id="chatbot-close-btn">×</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <p>👋 Hello! I’m Sweetty. Type "Hi" to get started and know more about me!</p>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
