@@ -1,183 +1,847 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Me - Sweetty P Devassy</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="dark-mode-toggle">
-        <button id="dark-mode-btn">🌙</button>
-    </div>
-        <!-- Chatbot Toggle Button -->
-        <div class="chatbot-toggle-btn" id="chatbot-toggle-btn">
-            💬
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body class="min-h-full bg-gray-100">
+    <!-- Navbar -->
+    <header class="p-4 bg-gray-100 text-gray-800">
+      <div class="container flex justify-between h-16 mx-auto">
+        <a
+          rel="noopener noreferrer"
+          href="#"
+          aria-label="Back to homepage"
+          class="flex items-center p-2 nav-link"
+          data-page="home"
+        >
+          <img src="./images/arrow.png" alt="arrow icon" class="w-8 h-8" />
+          <p class="font-bold text-violet-600">SWEETTY</p>
+        </a>
+        <ul class="items-stretch hidden space-x-3 lg:flex">
+          <li class="flex">
+            <button
+              class="nav-link flex items-center px-4 -mb-1 border-b-2 border-transparent"
+              data-page="home"
+            >
+              About Me
+            </button>
+          </li>
+          <li class="flex">
+            <button
+              class="nav-link flex items-center px-4 -mb-1 border-b-2 border-transparent"
+              data-page="experience"
+            >
+              Experience
+            </button>
+          </li>
+          <li class="flex">
+            <a
+              rel="noopener noreferrer"
+              class="nav-link flex items-center px-4 -mb-1 border-b-2 border-transparent"
+              data-page="education"
+              >Education</a
+            >
+          </li>
+          <li class="flex">
+            <a
+              rel="noopener noreferrer"
+              class="nav-link flex items-center px-4 -mb-1 border-b-2 border-transparent"
+              data-page="blogs"
+              >Blogs</a
+            >
+          </li>
+          <li class="flex">
+            <a
+              rel="noopener noreferrer"
+              class="nav-link flex items-center px-4 -mb-1 border-b-2 border-transparent"
+              data-page="Presentations"
+              >Presentations</a
+            >
+          </li>
+          <li class="flex">
+            <a
+              rel="noopener noreferrer"
+              class="nav-link flex items-center px-4 -mb-1 border-b-2 border-transparent"
+              data-page="Projects"
+              >Projects</a
+            >
+          </li>
+        </ul>
+        <div class="items-center flex-shrink-0 hidden lg:flex">
+          <a
+            href="mailto:sweettypdevassy@gmail.com"
+            class="self-center px-8 py-3 font-semibold rounded bg-violet-600 text-gray-50"
+            >Contact Me</a
+          >
         </div>
-    <header>
-        <div class="header-content">
-            <img src="sweetty.jpeg" alt="Sweetty P Devassy" style="width: 150px; height: 150px; border-radius: 50%;">
-            <h1>👋 Hi, I'm <span class="highlight">Sweetty P Devassy</span></h1>
-        <p>🚀 Backend Developer | 🛠️ Open Source Contributor | 🎤 Speaker | ✍️ Blogger</p>
-        </div>
+        <button class="p-4 lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6 text-gray-800"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </header>
-    
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my personal website! I'm a Backend Developer at IBM, an Open Source Contributor, a passionate Blog Writer, and a Tech Speaker who loves sharing knowledge through sessions and workshops.</p>
-    </section>
-    <section id="education">
-        <h2>🎓 Education</h2>
-        <p>Click an item to reveal more details!</p>
-        
-        <div class="education-container">
-            <div class="education-card" onclick="toggleDetails(this)">
-                <h3>Bachelor of Technology</h3>
-                <p><strong>Institution:</strong> APJ Abdul Kalam Technological University</p>
-                <p><strong>College:</strong> Mar Athanasius College of Engineering, Kothamangalam</p>
-                <p><strong>CGPA:</strong> 9.48</p>
-                <p><strong>Specialization:</strong> Electronics and Communication</p>
-                <p><strong>Additional:</strong> Minor in Computer Science & Honours in Electronics and Communication Engineering</p>
-            </div>
+    <!-- Hero -->
+    <section id="content" class="bg-gray-100 text-gray-800"></section>
 
-            <div class="education-card" onclick="toggleDetails(this)">
-                <h3>Plus Two</h3>
-                <p><strong>Institution:</strong> St George HSS, Kothamangalam</p>
-                <p><strong>Percentage:</strong> 97.25%</p>
-                <p><strong>Specialization:</strong> Computer Science</p>
-            </div>
+    <script>
+      const content = document.getElementById("content");
 
-            <div class="education-card" onclick="toggleDetails(this)">
-                <h3>Matriculation</h3>
-                <p><strong>Institution:</strong> Sobhana Public School, Kothamangalam</p>
-                <p><strong>CGPA:</strong> 10</p>
-            </div>
-        </div>
-    </section>
+      const pages = {
+        home: `<div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-around">
+                        <div class="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+                            <img src="images/sweetty.jpeg" alt="" class="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+                        </div>
+                        <div class="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+                            <p class="mt-6 font-bold text-2xl">Hi 👋,</p>
+                            <h1 class="text-5xl font-bold leading-none sm:text-6xl">I'm
+                                <span class="text-violet-600">Sweetty P Devassy</span>
+                            </h1>
+                            <p class="mt-6 mb-8 text-lg sm:mb-12 text-justify">
+                                <br>I'm a Backend Developer at IBM, an Open Source Contributor, and a Tech Speaker passionate about sharing knowledge through blogs, sessions, and workshops.
+                                <br> I love building scalable solutions and contributing to the developer community.
+                            </p>
+                            <div class="flex items-center justify-center flex-col space-y-0 space-x-4 lg:justify-start md:flex-row">
+                                <a rel="noopener noreferrer" href="https://github.com/sweettypdevassy" class="px-3 py-3">
+                                    <img src="./images/github-mark.svg" alt="Sweetty's Github profile" class="w-12 h-12">
+                                </a>
+                                <a rel="noopener noreferrer" href="https://www.linkedin.com/in/sweetty-p-devassy/" class="px-3 py-3">
+                                    <img src="./images/linkedin.svg" alt="Sweetty's LinkedIn profile" class="w-12 h-12">
+                                </a>
+                                <a rel="noopener noreferrer" href="#" class="px-3 py-3 text-lg font-semibold border rounded border-gray-800">Resume [PDF]</a>
+                            </div>
+                        </div>
+                    </div>`,
 
-    <section id="experience">
-        <h2>💼 Experience</h2>
-        <p>Click an item to reveal more details!</p>
-        
-        <div class="experience-container">
-            <div class="experience-card" onclick="toggleDetails(this)">
-                <h3>Software Developer Intern</h3>
-                <p><strong>Company:</strong> IBM India Private Limited, Kochi</p>
-                <p><strong>Duration:</strong> 30/01/2023 - 31/07/2023</p>
-                <p><strong>Project:</strong> WebSphere Application Server</p>
-                <p>Engaged in L3 support cases and dev activities for JCA and JDBC components of traditional WebSphere and Open Liberty, as well as the Bean Validation component of Open Liberty.</p>
-            </div>
-
-            <div class="experience-card" onclick="toggleDetails(this)">
-                <h3>Software Developer</h3>
-                <p><strong>Company:</strong> IBM India Private Limited, Kochi</p>
-                <p><strong>Duration:</strong> 01/08/2023 - Present</p>
-                <p><strong>Project:</strong> WebSphere Application Server</p>
-                <p>Engaged in L3 support cases and dev activities for JCA and JDBC components of traditional WebSphere and Open Liberty, as well as the Bean Validation component of Open Liberty.</p>
-            </div>
-
-            
-        </div>
-    </section>
-
-    <section id="blogs">
-        <h2>📝 Blog Articles</h2>
-        <p>Click an item to reveal more details!</p>
-        
-        <div class="blogs-container">
-            <div class="blog-card" onclick="toggleDetails(this)">
-                <h3>Virtual Threads: A Game-Changer for Concurrency</h3>
-                <p>Published on DZone, this blog explores Java Virtual Threads, comparing them to traditional platform threads and providing example code.</p>
-                <a href="https://dzone.com/articles/deep-dive-into-java-virtual-threads-a-game-changer">Read Blog</a>
-            </div>
-
-            <div class="blog-card" onclick="toggleDetails(this)">
-                <h3>Unleashing Creativity: The Rise of Low-Code and No-Code Platforms</h3>
-                <p>This blog likens low-code and no-code platforms to an artist's canvas, emphasizing how these platforms empower users to transform ideas into software solutions without extensive technical skills.</p>
-                <a href="https://medium.com/@sweettypdevassy2001/unleashing-creativity-the-rise-of-low-code-and-no-code-platforms-8c09bd10261b">Read Blog</a>
-            </div>
-
-            <div class="blog-card" onclick="toggleDetails(this)">
-                <h3>Jakarta WebSocket Essentials: A Guide to Full-Duplex Communication in Java</h3>
-                <p>Published on DZone, this blog demonstrates how to build a real-time chat app using Jakarta WebSocket and Open Liberty.</p>
-                <a href="https://dzone.com/articles/jakarta-websocket-essentials">Read Blog</a>
+        experience: `<div class="container max-w-5xl px-4 py-12 mx-auto">
+    <div class="grid gap-4 mx-4 sm:grid-cols-12">
+        <div class="col-span-12 sm:col-span-3">
+            <div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-violet-600">
+                <h3 class="text-3xl font-semibold">My Work Experience</h3>
             </div>
         </div>
-    </section>
+        <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+            <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-300">
+                
+                <!-- Backend Developer Role -->
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-600 w-3/4">
+                        <h3 class="text-xl font-semibold tracking-wide">Backend Developer</h3>
+                        <p class="text-xs tracking-wide uppercase text-gray-600">IBM | Aug 2023 - Present</p>
+                        <p class="mt-4 text-justify"><span class="font-bold">Project:</span> WebSphere Application Server</p>
+                        <p class="mt-1 text-justify">
+                            I have been actively engaged in L3 support and development specifically in Jakarta Connector Architecture(JCA) and Java Database Connectivity(JDBC) components of Traditional WebSphere Application Server(TWAS) and Open Liberty, as well as the Bean Validation component of Open Liberty. Additionally, I have contributed to  Cloudant database integration, ensuring seamless connectivity and data management.
 
-    <section id="talks">
-    <h2>🎤 Talks & Presentations</h2>
-    <p>Click a talk to reveal more details!</p>
-    
-    <div class="talks-container">
-        <div class="talk-card" onclick="toggleDetails(this)">
-            <h3>Java 8 to 17 Migration</h3>
-            <p><strong>Event:</strong> Java User Group</p>
-            <p>Discussed major changes from Java 8 to 17, including JPMS, var, garbage collectors, pattern matching, and best migration practices.</p>
-        </div>
+ My work involves:
+                        </p>
+                        
+                        <h4 class="mt-4 font-semibold">L3 Support for JCA, JDBC and Bean Validation</h4>
+                        <ul class="list-disc ml-6 text-justify">
+                            <li>Handling complex customer cases related to JCA , JDBC and Bean Validation, diagnosing issues, and providing fixes or workarounds.</li>
+                            <li>Performed debugging and log analysis, investigating thread dumps, memory dumps, and performance issues to diagnose and resolve problems in WebSphere and Open Liberty environments.</li>
+                            <li>Delivering iFixes & APAR Resolutions to ensure seamless functionality and minimal downtime for enterprise applications.</li>
+                            <li>Collaborating with L2 Support & Development Teams to triage, escalate, and resolve customer-reported issues efficiently.</li>
+                            <li>Worked on multiple JCA defects, enhancing the stability and performance of the JCA component.</li>
 
-        <div class="talk-card" onclick="toggleDetails(this)">
-            <h3>Enterprise App Containerization</h3>
-            <p><strong>Event:</strong> WebSphere User Group</p>
-            <p>Presented how Open Liberty and OpenShift simplify enterprise application deployment, focusing on scalability and cloud-native best practices.</p>
-            <a href="https://drive.google.com/file/d/1W0UCDC9BBQ7YDIIuHImIP9wP6dcdKa_Z/view?usp=sharing">Watch presentation</a>
-        </div>
+                        </ul>
+                        
+                        <h4 class="mt-4 font-semibold">Contributions to Open Liberty’s Bean Validation Component</h4>
+                        <ul class="list-disc ml-6 text-justify">
+                            <li>Implemented bug fixes and enhancements to improve Open Liberty’s Bean Validation (Jakarta Validation) framework for correctness and Jakarta EE compliance.</li>
+                            <li>Developed JUnit tests for method parameter validation and contributed to upgrading Bean Validation to Jakarta Validation 3.1.</li>
+                            <liPrepared the UFO document and completed the UFO review for Bean Validation 3.1.</li>
+                            <li>Completed Bean Validation 3.1 for the Jakarta EE 11 release.</li>
+                        </ul>
+                        <h4 class="mt-4 font-semibold">Cloudant Database Integration & Development</h4>
+                        <ul class="list-disc ml-6 text-justify">
+                            <li>Developed a sample application demonstrating how to store data with Cloudant using CDI and MicroProfile Config, along with data validation using Jakarta Bean Validation.</li>
+                            <li>Integrated Cloudant into CI/CD pipelines, using it as a service container for testing in GitHub Actions.</li>
+                            <li>Enhanced documentation in README.md and published a technical blog on Cloudant integration  in Java applications.</li>
+                        </ul>
+                        <h4 class="mt-4 font-semibold">Certifications & Achievements</h4>
+                        <ul class="list-disc ml-6 text-justify">
+                            <li>Achieved the Champion Learner Gold Milestone in 2023 and 2024, completing extensive learning in Java, WebSphere, Cloud, AI, Open Source, Microservices, Security, Agile, and DevOps. Earned multiple certifications, including Docker, Kubernetes, IBM Cloud, AI Ethics, Enterprise Design Thinking, Python for Data Science, Liberty Developer Essentials, and IBM Quantum Conversations, along with various developer and security-related credentials.</li>
+                            <li>Passed the Liberty assessment exam, earning the Liberty Developer Essentials badge to deepen expertise in Liberty, and actively participated in hackathons, watsonx Challenge and WCA@IBM.</li>
+                        </ul>
+                    </div>
+                    <!-- IBM & WebSphere Logos -->
+                    <div class="flex space-x-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="w-16 h-16 ml-auto">
+                    </div>
+                </div>
 
-        <div class="talk-card" onclick="toggleDetails(this)">
-            <h3>The Rise of Low-Code/No-Code Platforms</h3>
-            <p><strong>Event:</strong> Think Friday Session</p>
-            <p>Explored how low-code and no-code platforms empower users to develop software with minimal coding, accelerating digital transformation.</p>
-            <a href="https://drive.google.com/file/d/1WPZutUhxL7Ex-ucdeeiF8MmH-Uvf_i6o/view?usp=sharing">Watch presentation</a>
+
+
+
+
+                <!-- Software Developer Intern Role -->
+                <div class="flex justify-between items-center">
+    <div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-600 w-3/4">
+        <h3 class="text-xl font-semibold tracking-wide">Software Developer Intern</h3>
+        <p class="text-xs tracking-wide uppercase text-gray-600">IBM | Jan 2023 - Jul 2023</p>
+        <p class="mt-4"><span class="font-bold">Project:</span> WebSphere Application Server</p>
+        <p class="mt-1 text-justify">
+            I have developed and deployed Java applications on Open Liberty using MicroProfile APIs, gained expertise in RESTful APIs and containerization, and earned certifications in Java, Docker, and WebSphere Application Server.
+        </p>
+
+        <h4 class="mt-4 font-semibold">Technical Experience</h4>
+        <ul class="list-disc ml-6 text-justify">
+            <li>Explored Liberty Guides</strong>to understand Open Liberty and its ecosystem.</li>
+            <li>Developed a BMI Calculator web app</strong>that runs on Open Liberty using MicroProfile API.</li>
+            <li>Gained hands-on experience with RESTful APIs, Java Servlets, and Containerization.</li>
+        </ul>
+
+        <h4 class="mt-4 font-semibold">Certifications & Learning</h4>
+        <ul class="list-disc ml-6 text-justify">
+            <li>Obtained multiple certifications and digital credentials in
+                Java, Docker, Web Development, APIs, Containers, Clean Code, Microservices, and WebSphere Application Server.
+            </li>
+        </ul>
+    </div>
+
+
+                    <!-- Open Liberty & MicroProfile Logos -->
+                    <div class="flex space-x-4">
+                       
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="w-16 h-16 ml-auto">
+                             
+                        
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+</div>
+
+        
+`,
+        education: `<div class="container max-w-5xl px-4 py-12 mx-auto">
+    <div class="grid gap-4 mx-4 sm:grid-cols-12">
+        <div class="col-span-12 sm:col-span-3">
+            <div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:dark:bg-violet-600">
+                <h3 class="text-3xl font-semibold">Education</h3>
+            </div>
+        </div>
+        <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+            <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:dark:bg-gray-300">
+                <!-- Bachelor's Degree -->
+                <div class="flex justify-between items-center sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-600">
+                    <div>
+                        <h3 class="text-xl font-semibold tracking-wide">Bachelor of Technology</h3>
+                        <time class="text-xs tracking-wide uppercase dark:text-gray-600">June 2019 - July 2023</time>
+                        <p class="mt-3"><span class="font-bold">University: </span>APJ Abdul Kalam Technological University</p>
+                        <p class="mt-3"><span class="font-bold">College:</span> Mar Athanasius College of Engineering, Kothamangalam</p>
+                        <p class="mt-3"><span class="font-bold">Specialization:</span> Electronics and Communication Engineering</p>
+                        <p class="mt-3">Minor Degree in Computer Science Engineering</p>
+                        <p class="mt-3">Honours Degree in Electronics and Communication Engineering</p>
+                        <p class="mt-3"><span class="font-bold">CGPA:</span> 9.48</p>
+                    </div>
+                    <img src="./images/image copy 2.png" alt="BTech Logo" class="w-16 h-16 ml-auto">
+                </div>
+
+                <!-- Higher Secondary -->
+                <div class="flex justify-between items-center sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-600">
+                    <div>
+                        <h3 class="text-xl font-semibold tracking-wide">Higher Secondary Education</h3>
+                        <time class="text-xs tracking-wide uppercase dark:text-gray-600">June 2017 - March 2019</time>
+                        <p class="mt-3"><span class="font-bold">Institution: </span>St George HSS, Kothamangalam</p>
+                        <p class="mt-3"><span class="font-bold">Specialization:</span> Computer Science</p>
+                        <p class="mt-3"><span class="font-bold">Percentage:</span> 97.25%</p>
+                    </div>
+                   <img src="./images/image copy.png" alt="BTech Logo" class="w-16 h-16 ml-auto">
+                </div>
+
+                <!-- Matriculation -->
+                <div class="flex justify-between items-center sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-600">
+                    <div>
+                        <h3 class="text-xl font-semibold tracking-wide">Matriculation</h3>
+                        <time class="text-xs tracking-wide uppercase dark:text-gray-600">June 2016 - March 2017</time>
+                        <p class="mt-3"><span class="font-bold">Institution: </span>Sobhana Public School, Kothamangalam</p>
+                        <p class="mt-3"><span class="font-bold">CGPA:</span> 10</p>
+                    </div>
+                    <img src="./images/image copy 3.png" alt="BTech Logo" class="w-16 h-16 ml-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+`,
+
+        blogs: `
+    <style>
+    .text-justify {
+        text-align: justify;
+    }
+</style>
+
+<div class="container p-6 mx-auto space-y-8">
+    <div class="space-y-2">
+        <h2 class="text-3xl font-bold relative">
+            <span class="block w-16 h-1 bg-purple-600 mb-2"></span>
+            Blogs
+        </h2>
+    </div>
+    <div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+        <article class="flex flex-col h-full dark:bg-gray-50 cursor-pointer" onclick="window.location='https://dzone.com/articles/deep-dive-into-java-virtual-threads-a-game-changer';">
+            <img alt="Virtual Threads" class="object-cover w-full h-52 dark:bg-gray-500" src="./images/image copy 4.png">
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[64px]">
+                    Virtual Threads: A Game-Changer for Concurrency
+                </h3>
+                <p class="text-sm dark:text-gray-600 text-justify min-h-[64px]">
+                    This blog explores Java Virtual Threads, comparing them to traditional platform threads and providing example code.
+                </p>
+                <div class="mt-auto flex flex-wrap justify-between text-xs dark:text-gray-600">
+                    <span>July 16, 2024</span>
+                    <span>DZone</span>
+                    <span>12K views</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="flex flex-col h-full dark:bg-gray-50 cursor-pointer" onclick="window.location='https://medium.com/@sweettypdevassy2001/unleashing-creativity-the-rise-of-low-code-and-no-code-platforms-8c09bd10261b';">
+            <img alt="Low-Code and No-Code Platforms" class="object-cover w-full h-52 dark:bg-gray-500" src="./images/1jpeg.jpeg">
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[64px]">
+                    Unleashing Creativity: The Rise of Low-Code and No-Code Platforms
+                </h3>
+                <p class="text-sm dark:text-gray-600 text-justify min-h-[64px]">
+                    This blog likens low-code and no-code platforms to an artist's canvas, emphasizing how these platforms empower users to transform ideas into software solutions without extensive technical skills.
+                     
+                </p>
+                <div class="mt-auto flex flex-wrap justify-between text-xs dark:text-gray-600">
+                    <span>Aug 23, 2024</span>
+                    <span>Medium</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="flex flex-col h-full dark:bg-gray-50 cursor-pointer" onclick="window.location='https://dzone.com/articles/jakarta-websocket-essentials';">
+            <img alt="WebSocket Essentials" class="object-cover w-full h-52 dark:bg-gray-500" src="./images/2.jpeg">
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[64px]">
+                    Jakarta WebSocket Essentials: A Guide to Full-Duplex Communication in Java
+                </h3>
+                <p class="text-sm dark:text-gray-600 text-justify min-h-[64px]">
+                    This blog demonstrates how to build a real-time chat app using Jakarta WebSocket and Open Liberty.
+                     <br>
+                </p>
+               
+                <div class="mt-auto flex flex-wrap justify-between text-xs dark:text-gray-600">
+                    <span>Nov 05, 2024</span>
+                    <span>DZone</span>
+                    <span>16K views</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+
+
+
+
+`,
+        Presentations: `<div class="container p-6 mx-auto space-y-8">
+    <div class="space-y-2">
+        <h2 class="text-3xl font-bold relative">
+            <span class="block w-16 h-1 bg-purple-600 mb-2"></span>
+            Presentations
+        </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Presentation Card 1 -->
+        <article class="flex flex-col dark:bg-gray-50 w-full max-w-sm mx-auto">
+            <a rel="noopener noreferrer" href="#" aria-label="Java 8 to 17 Migration">
+                <img alt="Java Migration" class="object-cover w-full h-52 dark:bg-gray-500" src="./images/4.png">
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[3rem]">Java 8 to 17 Migration</h3>
+                <div class="h-4"></div>
+                <p class="text-xs dark:text-gray-600 min-h-[5rem] text-justify">
+                    Discussed major changes from Java 8 to 17, including JPMS, var, garbage collectors, pattern matching, and best migration practices.
+                </p>
+                <div class="mt-4">
+                    <span class="text-xs dark:text-gray-600 font-semibold">Event:</span> 
+                    <span class="text-xs dark:text-gray-600">Java User Group</span>
+                </div>
+                <div class="flex justify-between pt-4 mt-2">
+                    <a href="https://1drv.ms/p/s!AuJzkqP_Jd7OcZ_MGbjGPyEF_KE?e=gb0o9P" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Get PPT</a>
+                    <a href="https://drive.google.com/file/d/1o6Po2b13-I4yOnNxYA21jYlB5dcuQaZF/view?usp=sharing" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Watch</a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Presentation Card 2 -->
+        <article class="flex flex-col dark:bg-gray-50 w-full max-w-sm mx-auto">
+            <a rel="noopener noreferrer" href="#" aria-label="Enterprise Application Containerisation">
+                <img alt="Containerisation" class="object-cover w-full h-52 dark:bg-gray-500" src="./images/3.png">
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[3rem]">Simplifying Enterprise Application Containerisation</h3>
+                <div class="h-4"></div>
+                <p class="text-xs dark:text-gray-600 min-h-[5rem] text-justify">
+                    Presented how Open Liberty and OpenShift simplify enterprise application deployment, focusing on scalability and cloud-native best practices.
+                </p>
+                <div class="mt-4">
+                    <span class="text-xs dark:text-gray-600 font-semibold">Event:</span> 
+                    <span class="text-xs dark:text-gray-600">WebSphere User Group</span>
+                </div>
+                <div class="flex justify-between pt-4 mt-2">
+                    <a href="https://1drv.ms/p/s!AuJzkqP_Jd7OciIwgKtehtKOW7U?e=r0j3gd" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Get PPT</a>
+                    <a href="https://drive.google.com/file/d/1W0UCDC9BBQ7YDIIuHImIP9wP6dcdKa_Z/view?usp=sharing" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Watch</a>
+                </div>
+            </div>
+        </article>
+        <!-- Presentation Card 3 -->
+        <article class="flex flex-col dark:bg-gray-50 w-full max-w-sm mx-auto">
+            <a rel="noopener noreferrer" href="#" aria-label="Low-Code/No-Code Platforms">
+                <img src="./images/2.png" alt="Low-Code" class="object-cover w-full h-52 dark:bg-gray-500">
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[3rem]">Low-Code/No-Code Platforms</h3>
+                <div class="h-4"></div>
+                <p class="text-xs dark:text-gray-600 min-h-[5rem] text-justify">
+                    Explored how low-code and no-code platforms empower users to develop software with minimal coding, accelerating digital transformation.
+                </p>
+                <div class="mt-4">
+                    <span class="text-xs dark:text-gray-600 font-semibold">Event:</span> 
+                    <span class="text-xs dark:text-gray-600">Think Friday Session</span>
+                </div>
+                <div class="flex justify-between pt-4 mt-2">
+                    <a href="https://1drv.ms/p/s!AuJzkqP_Jd7ObKaEgcOmUgl9XhI?e=XS7IY0" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Get PPT</a>
+                    <a href="https://drive.google.com/file/d/1WPZutUhxL7Ex-ucdeeiF8MmH-Uvf_i6o/view?usp=sharing" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Watch</a>
+                </div>
+            </div>
+        </article>
+        <!-- Presentation Card 4 -->
+        <article class="flex flex-col dark:bg-gray-50 w-full max-w-sm mx-auto">
+            <a rel="noopener noreferrer" href="#" aria-label="Object Detection Algorithms">
+                <img src="./images/5.png" alt="Object Detection" class="object-cover w-full h-52 dark:bg-gray-500">
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+                <h3 class="text-lg font-semibold leading-snug min-h-[3rem]">Object Detection Algorithms</h3>
+                <div class="h-4"></div>
+                <p class="text-xs dark:text-gray-600 min-h-[5rem] text-justify">
+                    Explored how deep learning enables object detection, covering various deep learning-based object detector algorithms.
+                </p>
+                <div class="mt-4">
+                    <span class="text-xs dark:text-gray-600 font-semibold">Event:</span> 
+                    <span class="text-xs dark:text-gray-600">College Seminar</span>
+                </div>
+                <div class="flex justify-between pt-4 mt-2">
+                    <a href="https://1drv.ms/p/s!AuJzkqP_Jd7Oa8BCKUBlzmr1OfI?e=dDTjcF" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Get PPT</a>
+                    <a href="https://drive.google.com/file/d/1bzZARvkR6xdkiyg-n1kJ0H6zFXbZMwdI/view?usp=sharing" class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">Get Report</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+
+`,
+        Projects: `<div class="container p-6 mx-auto space-y-8">
+    <div class="space-y-2">
+        <h2 class="text-3xl font-bold relative">
+            <span class="block w-16 h-1 bg-purple-600 mb-2"></span>
+            Projects
+        </h2>
+    </div>
+    <div class="space-y-8">
+    <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="bmi" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/8.webp">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">Cloudant-Powered Crew Management Application</h3>
+                <p class="text-sm dark:text-gray-600 py-2 max-w-full text-justify">
+                    The Cloudant-Powered Crew Management Application is a Jakarta EE-based solution built with Open Liberty, leveraging Cloudant (also compatible with CouchDB) for NoSQL storage and CDI and MicroProfile Config for efficient dependency injection and configuration management. Users can register crew members by providing a name, ID number, and rank, with real-time updates displayed on the UI. The application exposes a RESTful API (/db/crew) via CDI producers, enabling CRUD operations—registering (POST), retrieving (GET), and deleting (DELETE) crew members. Jakarta Bean Validation ensures input integrity, returning descriptive messages for invalid data. This project demonstrates expertise in Jakarta EE, Open Liberty, Cloudant, REST APIs, CDI, and MicroProfile Config, making it a robust example of cloud-based data management and validation in enterprise applications.
+                </p>
+                <div class="flex flex-row items-center justify-between mt-4">
+                    <div class="flex flex-col items-center">
+                        <a href="https://github.com/OpenLiberty/sample-cloudant" target="_blank">
+                            <img src="./images/github-mark.svg" alt="Code" class="w-12 h-12">
+                        </a>
+                        <span class="text-xs dark:text-gray-600 mt-1">Code</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6">
+                            <span>Java 54.2%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6">
+                            <span>HTML 14.1%</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-6 h-6">
+                            <span>JavaScript 13.5%</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-6 h-6">
+                            <span>CSS 18.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="P1" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/P1.png">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">WebSocket Chat Application</h3>
+                <p class="text-sm dark:text-gray-600 py-2 max-w-full text-justify">
+                    The WebSocket Chat Application is a real-time messaging platform built with React on the frontend and Jakarta WebSocket API on the backend, enabling seamless communication between users. Each user can join the chat by setting a username, send messages instantly, and see messages from others in real-time, with a unique color assigned to distinguish their messages. Designed with a modern UI and a scalable WebSocket-based backend, this application demonstrates efficient, low-latency communication for interactive chat experiences.
+                </p>
+                <div class="flex justify-between items-center mt-4 w-full">
+                    <div class="flex gap-8">
+                        <div class="flex flex-col items-center">
+                            <a href="https://github.com/sweettypdevassy/ws-blog-backend" target="_blank">
+                                <img src="./images/github-mark.svg" alt="Backend Code" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">Backend</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="https://github.com/sweettypdevassy/ws-blog-frontend" target="_blank">
+                                <img src="./images/github-mark.svg" alt="Frontend Code" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">Frontend</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-6 h-6">
+                            <span>JavaScript 56.8%</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-6 h-6">
+                            <span>CSS 24.2%</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6">
+                            <span>HTML 19.0%</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6">
+                            <span>Java 89.4%</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-6 h-6">
+                            <span>Dockerfile 10.6%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+
+        <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="bmi" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/P2.png">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">BMI Calculator</h3>
+                <p class="text-sm dark:text-gray-600 py-2 max-w-full text-justify">
+                    The BMI Calculator is a web application built with Open Liberty, HttpServlet, and Tailwind CSS, allowing users to determine their Body Mass Index based on their weight and height. It supports multiple unit inputs, calculates the BMI instantly, and classifies it into categories such as Underweight, Normal, or Overweight. With a clean UI and seamless backend integration, the application also stores the calculated BMI in a database for record-keeping and further analysis.
+                </p>
+                <div class="flex flex-row items-center justify-between mt-4">
+                    <div class="flex flex-col items-center">
+                        <a href="https://github.com/sweettypdevassy/bmi-calculator" target="_blank">
+                            <img src="./images/github-mark.svg" alt="Code" class="w-12 h-12">
+                        </a>
+                        <span class="text-xs dark:text-gray-600 mt-1">Code</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6">
+                            <span>Java 93.3%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6">
+                            <span>HTML 5.3%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-6 h-6">
+                            <span>Dockerfile 1.4%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="Blood Bank" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/P3.png">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">Blood Bank and Donor Management System</h3>
+                <p class="text-sm dark:text-gray-600 py-2 text-justify">
+                    The Blood Bank Donor Management System is a web-based application built with PHP and MySQL to streamline blood donation management. It enables blood banks to track inventory, manage donor information, and schedule donations efficiently. Administrators can update donor details, monitor blood stock in real-time, and ensure availability. Donors can register, schedule appointments, and receive notifications about donation needs. The system also alerts donors when their blood type is in demand to encourage repeat donations. With secure authentication and a user-friendly interface, this system enhances efficiency, optimizes inventory, and promotes sustainable blood donation.
+                </p>
+                <div class="flex justify-between items-center mt-4">
+                    <div class="flex gap-8">
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/p/s!AuJzkqP_Jd7Oe8XOoFc1TjhM3XE?e=6n0erh" target="_blank">
+                                <img src="./images/p4.png" alt="PPT" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">PPT</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/b/s!AuJzkqP_Jd7OfFJc1wT2nxqreJg?e=eV58hc" target="_blank">
+                                <img src="./images/P5.png" alt="Report" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">Report</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-end gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-6 h-6">
+                            <span>PHP 45%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-6 h-6">
+                            <span>MySQL 25%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6">
+                            <span>HTML 15%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-6 h-6">
+                            <span>JavaScript 15%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="Blood Bank" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/Picture 3.png">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">Smart Cap for Blind People</h3>
+                <p class="text-sm dark:text-gray-600 py-2 text-justify">
+                    The Ultrasonic Sensor-Based Smart Cap is an innovative electronic travel aid designed to assist visually impaired individuals in navigating their surroundings independently. Built using Raspberry Pi, ultrasonic sensors, a buzzer, and a web camera, this smart cap enhances mobility and safety by providing real-time obstacle detection and object recognition. It accurately measures distances using an ultrasonic sensor and activates a buzzer when an obstacle is detected within 45 cm, ensuring timely alerts while remaining silent when no obstacle is present. The integrated web camera captures images of detected objects, which are then processed using the Raspberry Pi to analyze and recognize them through image recognition algorithms. To further enhance accessibility, the system converts the interpreted object information into a voice note, providing auditory feedback to the user. With its compact design and real-time assistance, this smart cap empowers visually impaired individuals to navigate safely, improving their daily lives with technology-driven accessibility solutions.
+                </p>
+                <div class="flex justify-between items-center mt-4">
+                    <div class="flex gap-8">
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/p/s!AuJzkqP_Jd7Of6lbvbNhIIavnHU?e=82cHSm" target="_blank">
+                                <img src="./images/p4.png" alt="PPT" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">PPT</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/b/s!AuJzkqP_Jd7OfruHZlPezuL4sf8?e=qxalxs" target="_blank">
+                                <img src="./images/P5.png" alt="Report" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">Report</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-end gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-2">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="Embedded C" class="w-6 h-6">
+        <span>Embedded C 50%</span>
+    </div>
+    <div class="flex items-center gap-2">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-6 h-6">
+        <span>Python 50%</span>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="Blood Bank" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/4..jpeg">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">Sun Tracking Solar panel</h3>
+                <p class="text-sm dark:text-gray-600 py-2 text-justify">
+                    The Sun Tracking Solar Panel System is an intelligent renewable energy solution designed to maximize solar energy utilization by dynamically adjusting the orientation of solar panels. Using Light Dependent Resistors (LDRs) as light sensors and a servo motor controlled by a microcontroller, the system continuously aligns the panel with the sun’s position throughout the day. The LDRs detect sunlight intensity variations, and the microcontroller processes this data to determine the optimal panel angle, with the servo motor making real-time adjustments. A feedback mechanism ensures precise tracking by continuously evaluating and repositioning the panel as needed. This automated system significantly enhances energy generation efficiency, optimizing solar resource utilization and improving the overall performance of solar installations for sustainable and renewable energy applications.
+                </p>
+                <div class="flex justify-between items-center mt-4">
+                    <div class="flex gap-8">
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/p/s!AuJzkqP_Jd7OgQImX8ZcVVEpubwx?e=eds48c" target="_blank">
+                                <img src="./images/p4.png" alt="PPT" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">PPT</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/b/s!AuJzkqP_Jd7OgQHjdgfUmpm-s4wb?e=e1y39W" target="_blank">
+                                <img src="./images/P5.png" alt="Report" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">Report</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-end gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-2">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="Embedded C" class="w-6 h-6">
+        <span>Embedded C 100%</span>
+    </div>
+    
+
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="flex flex-row items-center dark:bg-gray-50 cursor-pointer p-6 shadow-lg rounded-lg">
+            <img alt="Blood Bank" class="object-cover w-2/5 h-80 dark:bg-gray-500" src="./images/6.jpeg">
+            <div class="flex flex-col flex-1 ml-6">
+                <h3 class="text-lg font-semibold leading-snug">Rain Detector</h3>
+                <p class="text-sm dark:text-gray-600 py-2 text-justify">
+                    The Rain Detector System is a simple yet effective project designed to detect rainfall and display its status on an LCD screen. Utilizing a rain sensor module based on the LM393 op-amp, the system measures moisture levels and provides both analog and digital outputs to indicate rain intensity. When raindrops fall on the sensor, they create a conductive path, reducing resistance and triggering the detection mechanism. This system is highly useful for rainwater harvesting, irrigation, home automation, and environmental monitoring, helping to conserve water and enhance underground water levels through recharge techniques. By providing real-time rain detection, the project enables efficient water management and automation in various applications.
+                </p>
+                <div class="flex justify-between items-center mt-4">
+                    <div class="flex gap-8">
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/p/s!AuJzkqP_Jd7OgQVu7KWDkbkCxkNS?e=fhpV7o" target="_blank">
+                                <img src="./images/p4.png" alt="PPT" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">PPT</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="https://1drv.ms/b/s!AuJzkqP_Jd7OgQRWHuRhcz3WC4Ar?e=d7aSwE" target="_blank">
+                                <img src="./images/P5.png" alt="Report" class="w-12 h-12">
+                            </a>
+                            <span class="text-xs dark:text-gray-600 mt-1">Report</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-end gap-4 text-xs dark:text-gray-600">
+                        <div class="flex items-center gap-2">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="Embedded C" class="w-6 h-6">
+        <span>Embedded C 100%</span>
+    </div>
+    
+
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+`,
+
+        contact: `<h2 class="text-2xl font-bold">Contact Us</h2>
+                      <p class="text-gray-600">Reach out to us anytime at contact@example.com.</p>`,
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+  const content = document.getElementById("content"); // Ensure your container has this ID
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function changePage(page) {
+    if (!pages[page]) return; // Prevent errors for missing pages
+
+    // Update the content
+    content.innerHTML = pages[page];
+
+    // Remove active class from all links
+    navLinks.forEach((link) =>
+      link.classList.remove("text-violet-600", "border-violet-600")
+    );
+
+    // Add active class to the clicked link
+    const activeLink = document.querySelector(`[data-page="${page}"]`);
+    if (activeLink) {
+      activeLink.classList.add("text-violet-600", "border-violet-600");
+    }
+  }
+
+  // Handle Click Events
+  navLinks.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent page reload
+      const page = this.getAttribute("data-page");
+      changePage(page);
+    });
+  });
+
+  // Load the home page initially
+  changePage("home");
+});
+
+    </script>
+  </body>
+</html>
+
+<!-- 
+
+    
     </section>
+
+   
 
     <section id="projects">
         <h2>🧑‍💻Projects</h2>
         <p>Click to know more about Projects</p>
-        
 
         <div class="projects-container">
             <div class="project-card" onclick="toggleDetails(this)">
                 <h3>WebSocket Chat Application</h3>
                 <p>A simple chat server using Jakarta WebSocket API</p>
-                <a href="https://github.com/sweettypdevassy/ws-blog-backend">Backend Repo</a> |
+                <a href="https://github.com/sweettypdevassy/ws-blog-backend">Backend Repo</a>
+                |
                 <a href="https://github.com/sweettypdevassy/ws-blog-frontend">Frontend Repo</a>
             </div>
             <div class="project-card" onclick="toggleDetails(this)">
                 <h3>BMI Calculator</h3>
-                <p>A BMI calculator web application using Open Liberty, HttpServlet, and Tailwind CSS.</p>
+                <p>
+                    A BMI calculator web application using Open Liberty, HttpServlet,
+                    and Tailwind CSS.
+                </p>
                 <a href="https://github.com/sweetty01/bmi-calculator">GitHub Repo</a>
             </div>
         </div>
-
     </section>
 
     <section id="contact">
         <h2>📞Contact Me</h2>
         <p>Email: sweettypdevassy91@gmail.com</p>
-        <p>GitHub: <a href="https://github.com/sweettypdevassy" target="_blank">sweettypdevassy</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/sweetty-p-devassy/" target="_blank">Sweetty P Devassy</a></p>
+        <p>
+            GitHub:
+            <a href="https://github.com/sweettypdevassy" target="_blank">sweettypdevassy</a>
+        </p>
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/sweetty-p-devassy/" target="_blank">Sweetty P Devassy</a>
+        </p>
     </section>
 
-    <!-- Chatbot Container -->
-     <div class="chatbot" id="chatbot">
-    <div class="chatbot-container" id="chatbot-container">
-        <div class="chatbot-header">
-            <span>Chatbot</span>
-            <button id="chatbot-close-btn">×</button>
-        </div>
-        <div class="chatbot-body" id="chatbot-body">
-            <p>👋 Hello! I’m Sweetty. Type "Hi" to get started and know more about me!</p>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="user-input" placeholder="Type a message...">
-            <button onclick="sendMessage()">Send</button>
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-container" id="chatbot-container">
+            <div class="chatbot-header">
+                <span>Chatbot</span>
+                <button id="chatbot-close-btn">×</button>
+            </div>
+            <div class="chatbot-body" id="chatbot-body">
+                <p>
+                    👋 Hello! I’m Sweetty. Type "Hi" to get started and know more about
+                    me!
+                </p>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="user-input" placeholder="Type a message..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
-</div>
-    <script src="script.js"></script>
-</body>
-</html>
-
+    <script src="script.js"></script> -->
